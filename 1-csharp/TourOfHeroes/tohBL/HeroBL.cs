@@ -7,16 +7,19 @@ namespace tohBL
 {
     public class HeroBL : IHeroBL
     {
-        private IHeroRepository repo = new HeroRepoSC();
+        private IHeroRepository _repo = new HeroRepoSC();
+        public HeroBL(IHeroRepository repo) {
+            _repo = repo;
+        }
 
         public void AddHero(Hero newHero){
             //ToDO: Add BL
-            repo.AddHero(newHero);
+            _repo.AddHero(newHero);
         }
 
         public List<Hero> GetHeroes(){
             //TODO: add BL
-            return repo.GetHeroes();
+            return _repo.GetHeroes();
         }
     }
 }

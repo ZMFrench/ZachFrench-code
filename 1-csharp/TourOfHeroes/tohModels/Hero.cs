@@ -46,5 +46,6 @@ namespace tohModels {
                 superpower = value;
             }
         }
+        public override string ToString() => $"Hero Details: \n\t name: {this.HeroName} \n\t hp: {this.HP} \n\t element: {this.ElementType} \n\t superpower: {this.SuperPower.ToString()}";
     }
 }
