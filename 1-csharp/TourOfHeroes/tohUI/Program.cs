@@ -1,10 +1,12 @@
 ﻿using System;
 using tohModels;
+using tohBL;
 
 namespace tohUI
 {
     class Program
     {
+        private static IHeroBL heroBL = new HeroBL();
         static void Main(string[] args)
         {
             //Add Hero method
@@ -25,7 +27,10 @@ namespace tohUI
             Console.WriteLine("Set the Hero's element: ");
             newHero.ElementType = Enum.Parse<Element>(Console.ReadLine());
 
-            Console.WriteLine($"Hero created with the following details:\n\t Name: {newHero.HeroName}\n\t SuperPower: {newHero.SuperPower.Name}");
+            heroBL.AddHero(newHero);
+            foreach(var item in heroBL.GetHeroes()){
+                Console.WriteLine($"Hero created with the following details:\n\t Name: {item.HeroName}\n\t SuperPower: {item.SuperPower.Name}");
+            }
         }
     }
 }
